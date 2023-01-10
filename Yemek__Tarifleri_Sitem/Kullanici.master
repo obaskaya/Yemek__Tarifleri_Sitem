@@ -1,0 +1,104 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Kullanici.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="StyleSheet2.css" rel="stylesheet" />
+    <script src="JavaScript.js"></script>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    
+    <style type="text/css">
+        .auto-style10 {
+            width: 190px;
+            margin-left: 6px;
+        }
+        .auto-style11 {
+            border-bottom: thin solid #FF00FF;
+            border-radius:20px;
+            width: 418px;
+        }
+        .auto-style13 {
+            font-size: small;
+            font-family: 'Roboto', sans-serif;
+        }
+        .auto-style15 {
+            height: auto;
+            width: 73%;
+            margin-left: 264px;
+            background-color: #dfbef8;
+            border-radius:20px;
+        }
+    </style>
+
+</head>
+<body style="align-items: center;">
+    <form id="form1" runat="server">
+
+        <nav class="navbar navbar-expand-custom navbar-mainbg">
+            <a class="navbar-brand navbar-logo" href="Anasayfa.aspx">ANASAYFA</a>
+            <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars text-white"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <div class="hori-selector">
+                        <div class="left"></div>
+                        <div class="right"></div>
+                    </div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="GununYemegi.aspx"><i class="fas fa-tachometer-alt"></i>GÜNÜN YEMEĞİ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="TarifOner.aspx"><i class="far fa-address-book"></i>TARİF ÖNER</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Hakkimizda.aspx"><i class="far fa-clone"></i>HAKKIMIZDA</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="iletisim.aspx"><i class="far fa-calendar-alt"></i>İLETİŞİM</a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+        <div class="d-flex justify-content-center align-items-center ">
+            <div class="SLİDE">
+                <asp:Image ID="Image1" runat="server" Height="250px" ImageUrl="~/resimler/header.jpg" Width="970px" />
+            </div>
+        </div>
+        <div class="d-flex justify-content-center align-items-center ">
+            <div class="holder">
+                <div class="auto-style7">
+                    <strong>&nbsp; KATEGORİLER<br />
+                        <asp:DataList ID="DataList1" runat="server" Width="201px" >
+                            <ItemTemplate>
+                                <div style="border: thin solid #FF00FF; border-radius:20px;" class="auto-style10">
+                                    <a href='KategoriDetay.aspx?KAtegoriid=<%#Eval("Kategoriid") %>'>
+                                    <asp:Label ID="Label1" runat="server" CssClass="auto-style11" Text='<%# Eval("KategoriAd") %>'></asp:Label>
+                                    </a>
+                                    <strong>
+                                        &nbsp;<span class="auto-style13">( </span> </strong>
+                                    <asp:Label ID="Label2" runat="server" Text='<%# Eval("KategoriAdet") %>' CssClass="auto-style13"></asp:Label>
+
+                                    <strong><span class="auto-style13">) </span></strong>
+                                </div>
+                            </ItemTemplate>
+                        </asp:DataList>
+                </div>
+                <div class="auto-style15">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+
+
+
+    </form>
+</body>
+</html>
+
